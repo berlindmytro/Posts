@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TodosController < ApplicationController
   def index
     @todo = Todo.all
@@ -17,7 +19,7 @@ class TodosController < ApplicationController
 
   def update
     @todo = Todo.find(params[:id])
-    if(@todo.update(todo_params))
+    if @todo.update(todo_params)
       redirect_to @todo
     else
       render 'edit'
@@ -33,17 +35,19 @@ class TodosController < ApplicationController
   end
 
   def create
-    #render plain: params[:todos].inspect
+
     @todo = Todo.new(todo_params)
 
-    if(@todo.save)
-    redirect_to @todo
-  else
-    render 'new'
+    if @todo.save
+      redirect_to @todo
+    else
+      render 'new'
+    end
   end
-end
 
-  private def todo_params
-params.require(:todos).permit(:title, :body)
-end
+  private
+
+  def todo_params
+    params.require(:todo).permit(:title, :body)
+  end
 end

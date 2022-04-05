@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-root 'todos#index', as: 'home'
-get 'todos' => 'pages#todopage', as: 'todos'
-resources :todos
-resources :pages
+  root 'todos#index', as: 'home'
+  get 'todos' => 'pages#todopage', as: 'todos'
+  resources :todos
+  resources :pages
 end
