@@ -31,7 +31,7 @@ class TodosController < ApplicationController
 
     @todo.destroy
 
-    redirect_to todo_path
+    redirect_to todos_path
   end
 
   def create
