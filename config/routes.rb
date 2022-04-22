@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  get "/posts", to: "posts#index"
+  root "posts#index"
+
+  resources :posts
 end
